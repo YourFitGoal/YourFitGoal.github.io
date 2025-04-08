@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Fit Goal - Calcola i tuoi obiettivi</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOURPUBLISHERID" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Fit Goal</h1>
+            <p>Calcola i tuoi obiettivi di forma fisica</p>
+        </header>
+
+        <!-- Ad space before form -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOURPUBLISHERID"
+                 data-ad-slot="YOURADSLOT1"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+
+        <main>
+            <form class="index-form" id="measurementForm" action="risultati.html" method="get">
+                <div class="form-group">
+                    <label for="input_altezza">Altezza (cm)</label>
+                    <input type="number" id="input_altezza" name="altezza" required step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="input_peso">Peso (kg)</label>
+                    <input type="number" id="input_peso" name="peso" required step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="input_eta">Età</label>
+                    <input type="number" id="input_eta" name="eta" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="input_vita">Circonferenza Vita (cm)</label>
+                    <input type="number" id="input_vita" name="vita" required step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="input_petto">Circonferenza Petto (cm)</label>
+                    <input type="number" id="input_petto" name="petto" required step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="input_braccio">Circonferenza Braccio (cm)</label>
+                    <input type="number" id="input_braccio" name="braccio" required step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="input_avambraccio">Circonferenza Avambraccio (cm)</label>
+                    <input type="number" id="input_avambraccio" name="avambraccio" required step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="input_coscia">Circonferenza Coscia (cm)</label>
+                    <input type="number" id="input_coscia" name="coscia" required step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="input_polpaccio">Circonferenza Polpaccio (cm)</label>
+                    <input type="number" id="input_polpaccio" name="polpaccio" required step="0.1">
+                </div>
+
+                <div class="form-group">
+                    <label for="input_sesso">Sesso</label>
+                    <select id="input_sesso" name="sesso" required>
+                        <option value="">Seleziona</option>
+                        <option value="maschio">Maschio</option>
+                        <option value="femmina">Femmina</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="input_categoria">Categoria</label>
+                    <select id="input_categoria" name="categoria" required>
+                        <option value="">Seleziona prima il sesso</option>
+                    </select>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="input_doped" name="doped">
+                        <span>Atleta dopato</span>
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn-primary">Calcola Obiettivi</button>
+                </div>
+            </form>
+        </main>
+
+        <!-- Ad space after form -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOURPUBLISHERID"
+                 data-ad-slot="YOURADSLOT2"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+
+        <footer>
+            <p>© 2024 Your Fit Goal - Tutti i diritti riservati</p>
+            <div class="cookie-consent">
+                <p>Questo sito utilizza cookie per migliorare l'esperienza utente. <a href="#" id="cookie-settings">Impostazioni cookie</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Categories for each gender
+        const categories = {
+            maschio: [
+                { value: 'classic', text: 'Classic Physique' },
+                { value: 'mens', text: 'Men\'s Physique' },
+                { value: 'open', text: 'Open Bodybuilding' }
+            ],
+            femmina: [
+                { value: 'bikini', text: 'Bikini' },
+                { value: 'wellness', text: 'Wellness' },
+                { value: 'figure', text: 'Figure' }
+            ]
+        };
+
+        // Update categories based on selected gender
+        document.getElementById('input_sesso').addEventListener('change', function() {
+            const categorySelect = document.getElementById('input_categoria');
+            const selectedGender = this.value;
+            
+            // Clear current options
+            categorySelect.innerHTML = '<option value="">Seleziona categoria</option>';
+            
+            // Add new options based on gender
+            if (selectedGender) {
+                categories[selectedGender].forEach(category => {
+                    const option = document.createElement('option');
+                    option.value = category.value;
+                    option.textContent = category.text;
+                    categorySelect.appendChild(option);
+                });
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html> 

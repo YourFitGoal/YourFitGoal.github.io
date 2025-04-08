@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Fit Goal - Risultati</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOURPUBLISHERID" crossorigin="anonymous"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Your Fit Goal - Risultati</h1>
+            <p>I tuoi obiettivi personalizzati</p>
+        </header>
+
+        <main>
+            <div class="category-display">
+                <h2 id="categoria-risultato"></h2>
+                <div class="body-fat-display" id="bf-ideale"></div>
+            </div>
+
+            <!-- Ad space after category -->
+            <div class="ad-container">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOURPUBLISHERID"
+                     data-ad-slot="YOURADSLOT3"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+
+            <div class="results-grid">
+                <!-- Colonna Sinistra - Valori Inseriti -->
+                <div class="results-column">
+                    <h2>Valori Inseriti</h2>
+                    <div class="results-container">
+                        <div class="result-item">
+                            <div class="result-label">IMC Attuale</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="imc-risultato"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Peso Attuale</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="peso-risultato"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Vita Attuale</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="vita-risultato"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Petto Attuale</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="petto-risultato"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Braccio Attuale</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="braccio-risultato"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Avambraccio Attuale</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="avambraccio-risultato"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Coscia Attuale</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="coscia-risultato"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Polpaccio Attuale</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="polpaccio-risultato"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonna Destra - Valori Ideali -->
+                <div class="results-column">
+                    <h2>Valori Ideali</h2>
+                    <div class="results-container">
+                        <div class="result-item">
+                            <div class="result-label">IMC Ideale</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="imc-ideale-risultato"></div>
+                                <div class="note">* Un IMC elevato è dato da una buona genetica.</div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Peso Range</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="peso-range"></div>
+                                <div class="note">* Il peso rispecchia il range dell'IMC</div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Vita Range</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="vita-range"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Petto Obiettivo</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="petto-obiettivo"></div>
+                                <div class="difference" id="differenza-petto"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Braccio Obiettivo</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="braccio-obiettivo"></div>
+                                <div class="difference" id="differenza-braccio"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Avambraccio Obiettivo</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="avambraccio-obiettivo"></div>
+                                <div class="difference" id="differenza-avambraccio"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Coscia Obiettivo</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="coscia-obiettivo"></div>
+                                <div class="difference" id="differenza-coscia"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-item">
+                            <div class="result-label">Circonferenza Polpaccio Obiettivo</div>
+                            <div class="result-value-container">
+                                <div class="result-value" id="polpaccio-obiettivo"></div>
+                                <div class="difference" id="differenza-polpaccio"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad space before PDF button -->
+            <div class="ad-container">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-YOURPUBLISHERID"
+                     data-ad-slot="YOURADSLOT4"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+
+            <div class="action-buttons">
+                <button id="downloadPDF" class="pdf-button">Scarica i tuoi obiettivi in PDF</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 Your Fit Goal - Tutti i diritti riservati</p>
+            <nav>
+                <a href="/privacy-policy.html">Privacy Policy</a>
+            </nav>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="cookie-consent.js"></script>
+</body>
+</html> 
