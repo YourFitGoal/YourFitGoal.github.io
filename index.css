@@ -1,0 +1,170 @@
+:root {
+    --dark-bg: #2c3542;
+    --turquoise: #40E0D0;
+    --cyan: #00CED1;
+    --mint: #98FF98;
+    --text-light: #f4f6f8;
+    --text-dark: #2c3542;
+    --border-light: rgba(255, 255, 255, 0.1);
+    --cream-bg: #f5f5f0;
+    --cream-input: #fafaf5;
+    --success-color: #2ecc71;
+    --border-radius: 12px;
+    --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.logo-container {
+    margin-bottom: 1rem;
+}
+
+.logo-container img {
+    max-height: 200px;
+    width: auto;
+}
+
+main {
+    background: var(--cream-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.1rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.gender-group {
+    flex: 0 1 auto;
+}
+
+.gender-group .checkbox-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.gender-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gender-option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+.gender-option label {
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.doped-group {
+    margin: 0;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.doped-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+.doped-group label {
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: var(--turquoise);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+.checkbox-group label {
+    margin: 0;
+    color: var(--text-dark);
+} 

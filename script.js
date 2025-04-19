@@ -2,59 +2,246 @@
 const CATEGORY_STANDARDS = {
     classic: {
         natural: {
-            imcRange: [22, 25],
-            bf: "8-10%",
-            vita_altezza: [0.44, 0.46],
+            imcRange: [24, 26],
+            bf: [6, 9],
+            vita_altezza: [0.43, 0.47],
             rapporti: {
-                petto: 1.50,
-                braccio: 0.70,
-                avambraccio: 0.52,
-                coscia: 0.80,
-                polpaccio: 0.52
+                petto: 1.55,
+                braccio: 0.52,
+                avambraccio: 0.40,
+                addome: 1.1,
+                fianchi: 0.93,
+                coscia: 0.75,
+                polpaccio: 0.50
             }
         },
         doped: {
-            imcRange: [25, 28],
-            bf: "5-7%",
-            vita_altezza: [0.42, 0.44],
+            imcRange: [26, 29],
+            bf: [4, 6.5],
+            vita_altezza: [0.40, 0.45],
             rapporti: {
-                petto: 1.618,
-                braccio: 0.75,
-                avambraccio: 0.55,
-                coscia: 0.85,
+                petto: 1.65,
+                braccio: 0.58,
+                avambraccio: 0.45,
+                addome: 1.15,
+                fianchi: 0.88,
+                coscia: 0.80,
                 polpaccio: 0.55
             }
         }
     },
     mens: {
         natural: {
-            imcRange: [21, 24],
-            bf: "8-10%",
-            vita_altezza: [0.45, 0.47],
+            imcRange: [23, 25],
+            bf: [6, 8],
+            vita_altezza: [0.42, 0.46],
             rapporti: {
-                petto: 1.40,
-                braccio: 0.65,
-                avambraccio: 0.50,
+                petto: 1.50,
+                braccio: 0.50,
+                avambraccio: 0.38,
+                addome: 1.05,
+                fianchi: 0.95,
                 coscia: 0.70,
                 polpaccio: 0.50
+            }
+        },
+        doped: {
+            imcRange: [25, 27.5],
+            bf: [4, 6],
+            vita_altezza: [0.40, 0.44],
+            rapporti: {
+                petto: 1.60,
+                braccio: 0.55,
+                avambraccio: 0.42,
+                addome: 1.10,
+                fianchi: 0.90,
+                coscia: 0.75,
+                polpaccio: 0.55
             }
         }
     },
     open: {
+        natural: {
+            imcRange: [26, 28],
+            bf: [6, 9],
+            vita_altezza: [0.44, 0.48],
+            rapporti: {
+                petto: 1.60,
+                braccio: 0.56,
+                avambraccio: 0.43,
+                addome: 1.15,
+                fianchi: 0.92,
+                coscia: 0.80,
+                polpaccio: 0.55
+            }
+        },
         doped: {
             imcRange: [28, 32],
-            bf: "4-6%",
-            vita_altezza: [0.40, 0.43],
+            bf: [3, 5.5],
+            vita_altezza: [0.38, 0.44],
             rapporti: {
-                petto: 1.90,
-                braccio: 0.95,
-                avambraccio: 0.60,
-                coscia: 1.25,
+                petto: 1.75,
+                braccio: 0.62,
+                avambraccio: 0.50,
+                addome: 1.20,
+                fianchi: 0.85,
+                coscia: 0.85,
+                polpaccio: 0.60
+            }
+        }
+    },
+    bikini: {
+        natural: {
+            imcRange: [18.5, 20.5],
+            bf: [13, 17],
+            vita_altezza: [0.35, 0.38],
+            rapporti: {
+                petto: 1.35,
+                braccio: 0.47,
+                avambraccio: 0.34,
+                addome: 1.00,
+                fianchi: 1.45,
+                coscia: 0.90,
+                polpaccio: 0.53
+            }
+        },
+        doped: {
+            imcRange: [19.5, 21.5],
+            bf: [10, 14],
+            vita_altezza: [0.33, 0.36],
+            rapporti: { 
+                petto: 1.40,
+                braccio: 0.50,
+                avambraccio: 0.36,
+                addome: 1.00,
+                fianchi: 1.50,
+                coscia: 0.95,
+                polpaccio: 0.55
+            }
+        }
+    },
+    wellness: {
+        natural: {
+            imcRange: [20.5, 22.5],
+            bf: [12, 16],
+            vita_altezza: [0.34, 0.37],
+            rapporti: {
+                petto: 1.40,
+                braccio: 0.50,
+                avambraccio: 0.36,
+                addome: 1.03,
+                fianchi: 1.55,
+                coscia: 1.00,
+                polpaccio: 0.55
+            }
+        },
+        doped: {
+            imcRange: [21.5, 23.5],
+            bf: [9, 13],
+            vita_altezza: [0.32, 0.35],
+            rapporti: { 
+                petto: 1.45,
+                braccio: 0.52,
+                avambraccio: 0.38,
+                addome: 1.05,
+                fianchi: 1.60,
+                coscia: 1.05,
+                polpaccio: 0.57
+            }
+        }
+    },
+    figure: {
+        natural: {
+            imcRange: [21.5, 23.5],
+            bf: [10, 14],
+            vita_altezza: [0.33, 0.36],
+            rapporti: {
+                petto: 1.45,
+                braccio: 0.53,
+                avambraccio: 0.38,
+                addome: 1.05,
+                fianchi: 1.50,
+                coscia: 1.05,
+                polpaccio: 0.58
+            }
+        },
+        doped: {
+            imcRange: [22.5, 24.5],
+            bf: [8, 12],
+            vita_altezza: [0.30, 0.34],
+            rapporti: { 
+                petto: 1.50,
+                braccio: 0.55,
+                avambraccio: 0.40,
+                addome: 1.05,
+                fianchi: 1.55,
+                coscia: 1.10,
+                polpaccio: 0.60
+            }
+        }
+    },
+    physique: {
+        natural: {
+            imcRange: [22.5, 24.5],
+            bf: [8, 12],
+            vita_altezza: [0.31, 0.34],
+            rapporti: {
+                petto: 1.50,
+                braccio: 0.58,
+                avambraccio: 0.40,
+                addome: 1.05,
+                fianchi: 1.45,
+                coscia: 1.10,
+                polpaccio: 0.63
+            }
+        },
+        doped: {
+            imcRange: [23.5, 25.5],
+            bf: [6, 10],
+            vita_altezza: [0.28, 0.32],
+            rapporti: { 
+                petto: 1.55,
+                braccio: 0.60,
+                avambraccio: 0.42,
+                addome: 1.05,
+                fianchi: 1.50,
+                coscia: 1.15,
+                polpaccio: 0.65
+            }
+        }
+    },
+    bodybuilding: {
+        natural: {
+            imcRange: [23.5, 25.5],
+            bf: [6, 10],
+            vita_altezza: [0.28, 0.32],
+            rapporti: {
+                petto: 1.55,
+                braccio: 0.63,
+                avambraccio: 0.43,
+                addome: 1.05,
+                fianchi: 1.40,
+                coscia: 1.15,
+                polpaccio: 0.68
+            }
+        },
+        doped: {
+            imcRange: [25, 28],
+            bf: [4, 8],
+            vita_altezza: [0.26, 0.30],
+            rapporti: { 
+                petto: 1.60,
+                braccio: 0.65,
+                avambraccio: 0.45,
+                addome: 1.05,
+                fianchi: 1.45,
+                coscia: 1.20,
                 polpaccio: 0.70
             }
         }
-    }
+    },
 };
+
 
 // Function to calculate BMI
 function calculateBMI(weight, height) {
@@ -67,11 +254,14 @@ function getUrlParams() {
     return {
         altezza: parseFloat(params.get('altezza')),
         peso: parseFloat(params.get('peso')),
+        bodyfat: parseFloat(params.get('bodyfat')),
         eta: parseInt(params.get('eta')),
         petto: parseFloat(params.get('petto')),
         vita: parseFloat(params.get('vita')),
         braccio: parseFloat(params.get('braccio')),
         avambraccio: parseFloat(params.get('avambraccio')),
+        addome: parseFloat(params.get('addome')),
+        fianchi: parseFloat(params.get('fianchi')),
         coscia: parseFloat(params.get('coscia')),
         polpaccio: parseFloat(params.get('polpaccio')),
         sesso: params.get('sesso'),
@@ -90,21 +280,26 @@ function calculateIdealMeasurements(params) {
     if (category === 'classic') {
         standards = isDoped ? CATEGORY_STANDARDS.classic.doped : CATEGORY_STANDARDS.classic.natural;
     } else if (category === 'mens') {
-        standards = CATEGORY_STANDARDS.mens.natural;
+        standards = isDoped ? CATEGORY_STANDARDS.mens.doped : CATEGORY_STANDARDS.mens.natural;
     } else if (category === 'open') {
-        standards = CATEGORY_STANDARDS.open.doped;
+        standards = isDoped ? CATEGORY_STANDARDS.open.doped : CATEGORY_STANDARDS.open.natural;
     }
 
     // Calculate ideal waist based on height range
     const vitaMin = params.altezza * standards.vita_altezza[0];
     const vitaMax = params.altezza * standards.vita_altezza[1];
     const vitaIdeale = (vitaMin + vitaMax) / 2;
+    const pesoMin = standards.imcRange[0] * (params.altezza / 100) ** 2;
+    const pesoMax = standards.imcRange[1] * (params.altezza / 100) ** 2;
+     
 
     // Calculate ideal weight based on IMC range
-    const altezza_m = params.altezza / 100;
-    const pesoMin = standards.imcRange[0] * (altezza_m ** 2);
-    const pesoMax = standards.imcRange[1] * (altezza_m ** 2);
-    const pesoIdeale = (pesoMin + pesoMax) / 2;
+    const massaMagraMin = pesoMin * (1 - standards.bf[0] / 100);
+    const massaMagraMax = pesoMax * (1 - standards.bf[1] / 100);
+
+    const pesoIdealeMin = ((massaMagraMin / (1 - standards.bf[0] / 100)) + (massaMagraMin / (1 - standards.bf[1] / 100))) / 2;
+    const pesoIdealeMax = ((massaMagraMax / (1 - standards.bf[0] / 100)) + (massaMagraMax / (1 - standards.bf[1] / 100))) / 2;
+    const IMC = params.peso / ((params.altezza / 100) ** 2);
 
     // Calculate other measurements based on actual waist
     const misure = {};
@@ -113,15 +308,17 @@ function calculateIdealMeasurements(params) {
     }
 
     return {
-        weight: pesoIdeale,
-        weightMin: pesoMin,
-        weightMax: pesoMax,
+        imc: IMC,
+        weightMin: pesoIdealeMin,
+        weightMax: pesoIdealeMax,
         waist: vitaIdeale,
         waistMin: vitaMin,
         waistMax: vitaMax,
         chest: misure.petto,
         arm: misure.braccio,
         forearm: misure.avambraccio,
+        abs: misure.addome,
+        hips: misure.fianchi,
         thigh: misure.coscia,
         calf: misure.polpaccio,
         bf: standards.bf,
@@ -134,62 +331,63 @@ function displayResults(params, ideals) {
     // Display category in the center
     const categoriaText = params.categoria.charAt(0).toUpperCase() + params.categoria.slice(1);
     const dopingText = params.doped ? ' (Doped)' : ' (Natural)';
-    document.getElementById('categoria-risultato').textContent = categoriaText + dopingText;
+    document.getElementById('categoria-display').textContent = categoriaText + dopingText;
 
     // Display current values
-    document.getElementById('imc-risultato').textContent = calculateBMI(params.peso, params.altezza);
-    document.getElementById('peso-risultato').textContent = `${params.peso} kg`;
-    document.getElementById('vita-risultato').textContent = `${params.vita} cm`;
-    document.getElementById('petto-risultato').textContent = `${params.petto} cm`;
-    document.getElementById('braccio-risultato').textContent = `${params.braccio} cm`;
-    document.getElementById('avambraccio-risultato').textContent = `${params.avambraccio} cm`;
-    document.getElementById('coscia-risultato').textContent = `${params.coscia} cm`;
-    document.getElementById('polpaccio-risultato').textContent = `${params.polpaccio} cm`;
+    document.getElementById('imc-value').textContent = `${ideals.imc.toFixed(1)}`;
+    document.getElementById('peso-value').textContent = `${params.peso.toFixed(1)} kg`;
+    document.getElementById('bodyfat-value').textContent = `${params.bodyfat.toFixed(1)} %`;
+    document.getElementById('vita-value').textContent = `${params.vita.toFixed(1)} cm`;
+    document.getElementById('petto-value').textContent = `${params.petto.toFixed(1)} cm`;
+    document.getElementById('braccio-value').textContent = `${params.braccio.toFixed(1)} cm`;
+    document.getElementById('avambraccio-value').textContent = `${params.avambraccio.toFixed(1)} cm`;
+    document.getElementById('addome-value').textContent = `${params.addome.toFixed(1)} cm`;
+    document.getElementById('fianchi-value').textContent = `${params.fianchi.toFixed(1)} cm`;
+    document.getElementById('coscia-value').textContent = `${params.coscia.toFixed(1)} cm`;
+    document.getElementById('polpaccio-value').textContent = `${params.polpaccio.toFixed(1)} cm`;
 
     // Display calculated values
-    document.getElementById('imc-ideale-risultato').textContent = 
+    document.getElementById('imcIdeale').textContent = 
         `${ideals.imcRange[0]} - ${ideals.imcRange[1]}`;
     
-    document.getElementById('peso-range').textContent = 
+    document.getElementById('pesoRange').textContent = 
         `${ideals.weightMin.toFixed(1)} - ${ideals.weightMax.toFixed(1)} kg`;
     
-    document.getElementById('vita-range').textContent = 
-        `${ideals.waistMin.toFixed(1)} - ${ideals.waistMax.toFixed(1)} cm`;
+    document.getElementById('CATEGORY_STANDARDS.bf').textContent = 
+        `${ideals.bf[0]} - ${ideals.bf[1]} %`;
+    
+    document.getElementById('vita-obiettivo').textContent = `${ideals.waist.toFixed(1)} cm`;
+    document.getElementById('vita-diff-right').textContent = getDifferenceText(params.vita, ideals.waist);
     
     document.getElementById('petto-obiettivo').textContent = `${ideals.chest.toFixed(1)} cm`;
-    const diffPetto = ideals.chest - params.petto;
-    document.getElementById('differenza-petto').textContent = getDifferenceText(diffPetto);
+    document.getElementById('petto-diff-right').textContent = getDifferenceText(params.petto, ideals.chest);
     
     document.getElementById('braccio-obiettivo').textContent = `${ideals.arm.toFixed(1)} cm`;
-    const diffBraccio = ideals.arm - params.braccio;
-    document.getElementById('differenza-braccio').textContent = getDifferenceText(diffBraccio);
+    document.getElementById('braccio-diff-right').textContent = getDifferenceText(params.braccio, ideals.arm);
     
     document.getElementById('avambraccio-obiettivo').textContent = `${ideals.forearm.toFixed(1)} cm`;
-    const diffAvambraccio = ideals.forearm - params.avambraccio;
-    document.getElementById('differenza-avambraccio').textContent = getDifferenceText(diffAvambraccio);
+    document.getElementById('avambraccio-diff-right').textContent = getDifferenceText(params.avambraccio, ideals.forearm);
+
+    document.getElementById('addome-obiettivo').textContent = `${ideals.abs.toFixed(1)} cm`;
+    document.getElementById('addome-diff-right').textContent = getDifferenceText(params.addome, ideals.abs);
+
+    document.getElementById('fianchi-obiettivo').textContent = `${ideals.hips.toFixed(1)} cm`;
+    document.getElementById('fianchi-diff-right').textContent = getDifferenceText(params.fianchi, ideals.hips);
     
     document.getElementById('coscia-obiettivo').textContent = `${ideals.thigh.toFixed(1)} cm`;
-    const diffCoscia = ideals.thigh - params.coscia;
-    document.getElementById('differenza-coscia').textContent = getDifferenceText(diffCoscia);
+    document.getElementById('coscia-diff-right').textContent = getDifferenceText(params.coscia, ideals.thigh);
     
     document.getElementById('polpaccio-obiettivo').textContent = `${ideals.calf.toFixed(1)} cm`;
-    const diffPolpaccio = ideals.calf - params.polpaccio;
-    document.getElementById('differenza-polpaccio').textContent = getDifferenceText(diffPolpaccio);
-    
-    document.getElementById('bf-ideale').textContent = `Body Fat: ${ideals.bf}`;
+    document.getElementById('polpaccio-diff-right').textContent = getDifferenceText(params.polpaccio, ideals.calf);
 }
 
 // Helper function to get difference text
-function getDifferenceText(difference) {
-    // Se la differenza è positiva, significa che l'obiettivo è maggiore del valore attuale
-    // quindi dobbiamo aumentare
-    if (difference > 0) {
-        return `(+${difference.toFixed(1)} da aumentare)`;
-    } 
-    // Se la differenza è negativa, significa che l'obiettivo è minore del valore attuale
-    // quindi dobbiamo ridurre
-    else {
-        return `(-${Math.abs(difference).toFixed(1)} da ridurre)`;
+function getDifferenceText(current, target) {
+    const difference = Math.abs(target - current);
+    if (target > current) {
+        return `(+${difference.toFixed(1)} cm da aumentare)`;
+    } else {
+        return `(-${difference.toFixed(1)} cm da ridurre)`;
     }
 }
 
@@ -233,17 +431,82 @@ function generatePDF(params, ideals) {
     doc.save('your-fit-goal-obiettivi.pdf');
 }
 
+document.getElementById('downloadPDF').addEventListener('click', function() {
+    const element = document.querySelector('.results-grid');
+    const opt = {
+        margin: 1,
+        filename: 'your-fit-goal.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+
+    // Nascondi temporaneamente il pulsante delle formule
+    const formulaLink = document.querySelector('.formula-link');
+    formulaLink.style.display = 'none';
+
+    html2pdf().set(opt).from(element).save().then(() => {
+        // Ripristina il pulsante delle formule
+        formulaLink.style.display = 'flex';
+    });
+});
+
+// Handle references popup
+document.addEventListener('DOMContentLoaded', function() {
+    const formulaLink = document.querySelector('.formula-link');
+    const popup = document.getElementById('referencesPopup');
+    const closeButton = document.querySelector('.close-popup');
+
+    if (formulaLink) {
+        formulaLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            popup.style.display = 'block';
+        });
+    }
+
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            popup.style.display = 'none';
+        });
+    }
+
+    // Close popup when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+});
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if we're on the results page
     if (window.location.pathname.includes('risultati.html')) {
         const params = getUrlParams();
         const ideals = calculateIdealMeasurements(params);
         displayResults(params, ideals);
-
-        // Add PDF download event listener
+        
         document.getElementById('downloadPDF').addEventListener('click', function() {
-            generatePDF(params, ideals);
+            const element = document.querySelector('.results-main');
+            const opt = {
+                margin: 1,
+                filename: 'YourFitGoal-Results.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            // Add temporary title for PDF
+            const title = document.createElement('h1');
+            title.textContent = 'Your Fit Goal - Risultati';
+            title.style.textAlign = 'center';
+            title.style.marginBottom = '20px';
+            element.insertBefore(title, element.firstChild);
+
+            // Generate PDF
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Remove temporary title after PDF generation
+                element.removeChild(title);
+            });
         });
     }
 
