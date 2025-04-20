@@ -1,3 +1,5 @@
+console.log('Script.js caricato!');
+
 // Constants for calculations
 const CATEGORY_STANDARDS = {
     classic: {
@@ -391,65 +393,6 @@ function getDifferenceText(current, target) {
     }
 }
 
-// Function to generate PDF
-function generatePDF(params, ideals) {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    // Title
-    doc.setFontSize(20);
-    doc.text('Your Fit Goal - Obiettivi Personalizzati', 20, 20);
-
-    // Category and doping status
-    const categoriaText = params.categoria.charAt(0).toUpperCase() + params.categoria.slice(1);
-    const dopingText = params.doped ? ' (Doped)' : ' (Natural)';
-    doc.setFontSize(14);
-    doc.text(`Categoria: ${categoriaText}${dopingText}`, 20, 30);
-
-    // Current measurements
-    doc.setFontSize(12);
-    doc.text('Misure Attuali:', 20, 40);
-    doc.text(`Altezza: ${params.altezza} cm`, 20, 50);
-    doc.text(`Peso: ${params.peso} kg`, 20, 60);
-    doc.text(`IMC: ${calculateBMI(params.peso, params.altezza)}`, 20, 70);
-
-    // Ideal measurements
-    doc.text('Obiettivi Ideali:', 20, 90);
-    doc.text(`IMC ideale: ${ideals.imcRange[0]} - ${ideals.imcRange[1]}`, 20, 100);
-    doc.text(`Peso ideale: ${ideals.weight.toFixed(1)} kg`, 20, 110);
-    doc.text(`Range peso: ${ideals.weightMin.toFixed(1)} - ${ideals.weightMax.toFixed(1)} kg`, 20, 120);
-    doc.text(`Vita ideale: ${ideals.waist.toFixed(1)} cm`, 20, 130);
-    doc.text(`Range vita: ${ideals.waistMin.toFixed(1)} - ${ideals.waistMax.toFixed(1)} cm`, 20, 140);
-    doc.text(`Petto: ${ideals.chest.toFixed(1)} cm`, 20, 150);
-    doc.text(`Braccio: ${ideals.arm.toFixed(1)} cm`, 20, 160);
-    doc.text(`Avambraccio: ${ideals.forearm.toFixed(1)} cm`, 20, 170);
-    doc.text(`Coscia: ${ideals.thigh.toFixed(1)} cm`, 20, 180);
-    doc.text(`Polpaccio: ${ideals.calf.toFixed(1)} cm`, 20, 190);
-    doc.text(`Body Fat ideale: ${ideals.bf}`, 20, 200);
-
-    // Save the PDF
-    doc.save('your-fit-goal-obiettivi.pdf');
-}
-
-document.getElementById('downloadPDF').addEventListener('click', function() {
-    const element = document.querySelector('.results-grid');
-    const opt = {
-        margin: 1,
-        filename: 'your-fit-goal.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
-
-    // Nascondi temporaneamente il pulsante delle formule
-    const formulaLink = document.querySelector('.formula-link');
-    formulaLink.style.display = 'none';
-
-    html2pdf().set(opt).from(element).save().then(() => {
-        // Ripristina il pulsante delle formule
-        formulaLink.style.display = 'flex';
-    });
-});
 
 // Handle references popup
 document.addEventListener('DOMContentLoaded', function() {
@@ -478,9 +421,100 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
-    if (window.location.pathname.includes('risultati.html')) {
+    // Check if we're on the index page
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+        console.log('Pagina index.html rilevata, inizializzazione suggerimenti...');
+        
+        // Funzione per salvare i valori nel localStorage
+        function saveValues() {
+            const formData = {};
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+                if (input.value) {
+                    // Salva il valore corrente
+                    formData[input.id] = input.value;
+                    
+                    // Ottieni i valori precedenti per questo campo
+                    let previousValues = JSON.parse(localStorage.getItem(input.id + '_history') || '[]');
+                    
+                    // Aggiungi il nuovo valore se non esiste già
+                    if (!previousValues.includes(input.value)) {
+                        previousValues.push(input.value);
+                        // Mantieni solo gli ultimi 5 valori
+                        if (previousValues.length > 5) {
+                            previousValues = previousValues.slice(-5);
+                        }
+                        localStorage.setItem(input.id + '_history', JSON.stringify(previousValues));
+                    }
+                }
+            });
+        }
+
+        // Funzione per mostrare i suggerimenti
+        function showSuggestions(input) {
+            const suggestionsContainer = input.nextElementSibling;
+            if (!suggestionsContainer) return;
+            
+            // Ottieni la cronologia dei valori per questo campo
+            const previousValues = JSON.parse(localStorage.getItem(input.id + '_history') || '[]');
+            
+            suggestionsContainer.innerHTML = '';
+            
+            if (previousValues.length > 0) {
+                previousValues.forEach(value => {
+                    const div = document.createElement('div');
+                    div.className = 'suggestion-item';
+                    div.textContent = value;
+                    div.onclick = (e) => {
+                        e.stopPropagation(); // Previene la propagazione del click
+                        input.value = value;
+                        suggestionsContainer.classList.remove('active');
+                        saveValues();
+                    };
+                    suggestionsContainer.appendChild(div);
+                });
+                suggestionsContainer.classList.add('active');
+            }
+        }
+
+        // Gestione degli eventi per gli input
+        document.addEventListener('DOMContentLoaded', () => {
+            // Aggiungi event listener per gli input
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+                // Salva il valore quando viene modificato
+                input.addEventListener('change', () => {
+                    saveValues();
+                });
+                
+                // Mostra suggerimenti quando il campo riceve il focus
+                input.addEventListener('focus', () => {
+                    showSuggestions(input);
+                });
+                
+                // Nascondi suggerimenti quando il campo perde il focus
+                input.addEventListener('blur', (e) => {
+                    // Piccolo delay per permettere il click sui suggerimenti
+                    setTimeout(() => {
+                        const suggestionsContainer = input.nextElementSibling;
+                        if (suggestionsContainer) {
+                            suggestionsContainer.classList.remove('active');
+                        }
+                    }, 200);
+                });
+            });
+            
+            // Chiudi i suggerimenti quando si clicca fuori
+            document.addEventListener('click', (e) => {
+                if (!e.target.matches('input[type="number"]')) {
+                    document.querySelectorAll('.suggestions').forEach(suggestions => {
+                        suggestions.classList.remove('active');
+                    });
+                }
+            });
+        });
+    } else if (window.location.pathname.includes('risultati.html')) {
         const params = getUrlParams();
         const ideals = calculateIdealMeasurements(params);
         displayResults(params, ideals);

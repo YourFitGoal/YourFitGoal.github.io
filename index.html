@@ -63,66 +63,81 @@
 
                 <div class="form-group">
                     <label for="input_altezza">Altezza (cm)</label>
-                    <input type="number" id="input_altezza" name="altezza" required step="0.1">
+                    <input type="number" id="input_altezza" name="altezza" required step="0.1" autocomplete="off">
+                    <div class="suggestions" id="suggestions_altezza"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_peso">Peso (kg)</label>
-                    <input type="number" id="input_peso" name="peso" required step="0.1">
+                    <input type="number" id="input_peso" name="peso" required step="0.1" autocomplete="off">
+                    <div class="suggestions" id="suggestions_peso"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_peso">Body Fat (%)</label>
-                    <input type="number" id="input_bodyfat" name="bodyfat" required step="0.1">
+                    <input type="number" id="input_bodyfat" name="bodyfat" required step="0.1" autocomplete="off">
+                    <div class="suggestions" id="suggestions_bodyfat"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_eta">Età</label>
-                    <input type="number" id="input_eta" name="eta" required>
+                    <input type="number" id="input_eta" name="eta" required autocomplete="off">
+                    <div class="suggestions" id="suggestions_eta"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_vita">Circonferenza Vita (cm)</label>
-                    <input type="number" id="input_vita" name="vita" required step="0.1">
+                    <input type="number" id="input_vita" name="vita" required step="0.1" autocomplete="off">
+                    <div class="suggestions" id="suggestions_vita"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_petto">Circonferenza Petto (cm)</label>
-                    <input type="number" id="input_petto" name="petto" required step="0.1">
+                    <input type="number" id="input_petto" name="petto" required step="0.1" autocomplete="off">
+                    <div class="suggestions" id="suggestions_petto"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_braccio">Circonferenza Braccio (cm)</label>
-                    <input type="number" id="input_braccio" name="braccio" required step="0.1">
+                    <input type="number" id="input_braccio" name="braccio" required step="0.1" autocomplete="off">
+                    <div class="suggestions" id="suggestions_braccio"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_avambraccio">Circonferenza Avambraccio (cm)</label>
-                    <input type="number" id="input_avambraccio" name="avambraccio" required step="0.1">
+                    <input type="number" id="input_avambraccio" name="avambraccio" required step="0.1" autocomplete="off">
+                    <div class="suggestions" id="suggestions_avambraccio"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_addome">Circonferenza Addome (cm)</label>
-                    <input type="number" id="input_addome" name="addome" required step="0.1">
+                    <input type="number" id="input_addome" name="addome" required step="0.1" autocomplete="off">
+                    <div class="suggestions" id="suggestions_addome"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_fianchi">Circonferenza Fianchi (cm)</label>
-                    <input type="number" id="input_fianchi" name="fianchi" required step="0.1">
+                    <input type="number" id="input_fianchi" name="fianchi" required step="0.1" autocomplete="off">
+                    <div class="suggestions" id="suggestions_fianchi"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_coscia">Circonferenza Coscia (cm)</label>
-                    <input type="number" id="input_coscia" name="coscia" required step="0.1">
+                    <input type="number" id="input_coscia" name="coscia" required step="0.1" autocomplete="off">
+                    <div class="suggestions" id="suggestions_coscia"></div>
                 </div>
 
                 <div class="form-group">
                     <label for="input_polpaccio">Circonferenza Polpaccio (cm)</label>
-                    <input type="number" id="input_polpaccio" name="polpaccio" required step="0.1">
+                    <input type="number" id="input_polpaccio" name="polpaccio" required step="0.1" autocomplete="off">
+                    <div class="suggestions" id="suggestions_polpaccio"></div>
                 </div>
 
                 <div class="form-group">
                     <button type="submit" class="btn-primary">Calcola Obiettivi</button>
+                </div>
+                <div class="form-group">
+                    <button type="button" id="testButton" class="btn-secondary">Test Suggerimenti</button>
                 </div>
             </form>
         </main>
@@ -167,6 +182,7 @@
             });
         });
     </script>
+    <script src="index.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 

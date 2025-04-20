@@ -197,26 +197,56 @@
             </div>
             <div class="popup-text">
                 <h2>Fonti e Riferimenti</h2>
-                <ul>
-                    <li>Osservazione e confronto tra standard IFBB, NPC e federazioni Natural</li>
-                    <li>Studio delle proporzioni golden ratio adattate al fisico femminile competitivo</li>
-                    <li>Analisi visiva su atlete professioniste per categoria</li>
-                    <li>Riferimenti da pubblicazioni di settore: 'Strength and Physique' - John Hansen, articoli di T-Nation e Bodybuilding.com</li>
-                    <li>Linee guida per valutazione antropometrica (ISAK, ACSM)</li>
-                    <li>Steve Reeves e Golden Ratio Bodybuilding (Petto = Vita 1.618)</li>
-                    <li>Fonte: "Building the Classic Physique the Natural Way", interviste storiche</li>
-                    <li>NPC e IFBB - Regolamenti ufficiali per categorie Mens Physique, Classic Physique, Open Bodybuilding</li>
-                    <li>Fonte: <a href="https://npcnewsonline.com/" target="_blank">https://npcnewsonline.com/</a></li>
-                    <li>Studi scientifici su composizione corporea in atleti agonisti (natural e doped)</li>
-                    <li>Journal of the International Society of Sports Nutrition (JISSN)</li>
-                    <li>PubMed: es. "Body composition and somatotype of competitive bodybuilders"</li>
-                    <li>Coach e preparatori natural di rilievo</li>
-                    <li>Alberto Nunez, Jeff Nippard, Eric Helms (3D Muscle Journey)</li>
-                    <li>Siti: <a href="https://3dmusclejourney.com/" target="_blank">https://3dmusclejourney.com/</a>, <a href="https://www.strongerbyscience.com/" target="_blank">https://www.strongerbyscience.com/</a></li>
-                    <li>Forum e community online con analisi avanzate (soprattutto Doped)</li>
-                    <li>Reddit: r/bodybuilding</li>
-                    <li><a href="https://evolutionary.org/" target="_blank">Evolutionary.org</a>, <a href="https://www.t-nation.com/" target="_blank">T-Nation.com</a></li>
-                </ul>
+                <div class="toggle-list">
+                    <div class="toggle-item">
+                        <div class="toggle-header">Rapporto ideale Petto/Vita e Braccio/Vita nei bodybuilder</div>
+                        <div class="toggle-content">
+                            Alan Aragon, '<a href="https://alanaragon.com" target="_blank">The Lean Muscle Diet</a>'; Brad Schoenfeld (2010), '<a href="https://doi.org/10.1519/JSC.0b013e3181e84003" target="_blank">The Mechanisms of Muscle Hypertrophy and Their Application to Resistance Training</a>', Journal of Strength and Conditioning Research.
+                        </div>
+                    </div>
+                    <div class="toggle-item">
+                        <div class="toggle-header">Range di IMC per atleti natural e doped per categoria</div>
+                        <div class="toggle-content">
+                            Eric Helms et al., '<a href="https://doi.org/10.1186/1550-2783-11-20" target="_blank">Evidence-Based Recommendations for Natural Bodybuilding Contest Preparation: Nutrition and Supplementation</a>', Journal of the International Society of Sports Nutrition (2014).
+                        </div>
+                    </div>
+                    <div class="toggle-item">
+                        <div class="toggle-header">Body fat % ottimali per ogni categoria agonistica</div>
+                        <div class="toggle-content">
+                            Layne Norton PhD, '<a href="https://biolayne.com" target="_blank">Fat Loss Forever</a>'; Interview from <a href="https://revivestronger.com/podcast3/layne-norton-facts-and-details/" target="_blank">Revive Stronger Podcast</a>
+                        </div>
+                    </div>
+                    <div class="toggle-item">
+                        <div class="toggle-header">Rapporto vita/altezza per atleti estetici e modelli di simmetria</div>
+                        <div class="toggle-content">
+                            Casey Butt PhD, '<a href="https://weightrainer.net" target="_blank">Your Muscular Potential: How to Predict Your Maximum Muscular Bodyweight and Measurements</a>'; <a href="https://academic.oup.com/ajcn/article/91/2/329/4597204" target="_blank">Golden Ratio Research (WAIST/HEIGHT)</a>
+                        </div>
+                    </div>
+                    <div class="toggle-item">
+                        <div class="toggle-header">Proporzioni ideali muscolari classiche (Steve Reeves Golden Ratio)</div>
+                        <div class="toggle-content">
+                            Steve Reeves, '<a href="https://stevenreeves.com" target="_blank">Building the Classic Physique the Natural Way</a>'; <a href="https://classicphysiquestudy.com" target="_blank">Golden Ratio Classic Bodybuilding Archive</a>
+                        </div>
+                    </div>
+                    <div class="toggle-item">
+                        <div class="toggle-header">Valori medi attuali nelle competizioni di Classic Physique e Open</div>
+                        <div class="toggle-content">
+                            <a href="https://npcnewsonline.com/rules" target="_blank">NPC & IFBB Official Judging Guidelines</a>; Interview with Chris Bumstead (via YouTube, Olympia Recaps and Q&A)
+                        </div>
+                    </div>
+                    <div class="toggle-item">
+                        <div class="toggle-header">Misure standard del corpo maschile nelle categorie natural</div>
+                        <div class="toggle-content">
+                            Menno Henselmans, <a href="https://mennohenselmans.com" target="_blank">Bayesian Bodybuilding Articles</a>; Expert Notes, JPMU Coach Seminar Archive
+                        </div>
+                    </div>
+                    <div class="toggle-item">
+                        <div class="toggle-header">Approccio scientifico per sviluppare proporzioni muscolari armoniche</div>
+                        <div class="toggle-content">
+                            Greg Nuckols, '<a href="https://www.strongerbyscience.com" target="_blank">Stronger by Science</a>'; Research review: '<a href="https://doi.org/10.1016/j.evolhumbehav.2017.03.002" target="_blank">Symmetry and Muscularity Preferences in Male Bodies</a>' (2017) - Evolution and Human Behavior
+                        </div>
+                    </div>
+                </div>
             </div>
             <button class="close-popup">Chiudi</button>
         </div>
@@ -224,5 +254,42 @@
 
     <script src="script.js"></script>
     <script src="cookie-consent.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Popup functionality
+            const formulaLink = document.querySelector('.formula-link');
+            const popup = document.getElementById('referencesPopup');
+            const closeButton = document.querySelector('.close-popup');
+
+            if (formulaLink) {
+                formulaLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    popup.style.display = 'block';
+                });
+            }
+
+            if (closeButton) {
+                closeButton.addEventListener('click', function() {
+                    popup.style.display = 'none';
+                });
+            }
+
+            // Close popup when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    popup.style.display = 'none';
+                }
+            });
+
+            // Toggle functionality
+            const toggleHeaders = document.querySelectorAll('.toggle-header');
+            toggleHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const toggleItem = header.parentElement;
+                    toggleItem.classList.toggle('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html> 

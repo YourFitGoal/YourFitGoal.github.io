@@ -87,7 +87,7 @@ body {
 
 .difference {
     font-size: 1.1rem;
-    color: #ff4444;
+    color: #097c8e;
     text-align: right;
     font-weight: 500;
 }
@@ -216,7 +216,7 @@ body {
 
 .popup-logo {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .popup-logo img {
@@ -233,7 +233,7 @@ body {
     text-align: center;
     margin-bottom: 2rem;
     color: var(--text-dark);
-    font-size: 1.8rem;
+    font-size: 2.2rem;
 }
 
 .popup-text ul {
@@ -282,4 +282,65 @@ body {
 
 .close-popup:hover {
     background-color: var(--cyan);
+}
+
+.toggle-list {
+    width: 100%;
+}
+
+.toggle-item {
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.toggle-header {
+    padding: 1rem;
+    background-color: var(--cream-bg);
+    color: var(--text-dark);
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-header:hover {
+    background-color: var(--turquoise);
+}
+
+.toggle-header::after {
+    content: "▼";
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.toggle-item.active .toggle-header::after {
+    transform: rotate(180deg);
+}
+
+.toggle-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    background-color: white;
+    transition: all 0.3s ease;
+    color: var(--text-dark);
+}
+
+.toggle-content a {
+    color: var(--cyan);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.toggle-content a:hover {
+    color: var(--turquoise);
+    text-decoration: underline;
+}
+
+.toggle-item.active .toggle-content {
+    padding: 1rem;
+    max-height: 500px;
 } 
